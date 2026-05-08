@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import {
   ArrowDown,
@@ -32,31 +31,6 @@ import heroImg from "@/assets/hero-workshop.jpg";
 import illustration from "@/assets/illustration-women.png";
 import mapImg from "@/assets/queretaro-map.png";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "MenstruAcción Querétaro — Por más menstruaciones dignas" },
-      {
-        name: "description",
-        content:
-          "Colectiva queretana por la dignidad menstrual. Talleres, productos, alianzas e iniciativas de ley contra la pobreza menstrual en México.",
-      },
-      { property: "og:title", content: "MenstruAcción Querétaro" },
-      { property: "og:description", content: "Por más menstruaciones dignas en México." },
-      { property: "og:type", content: "website" },
-    ],
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap",
-      },
-    ],
-  }),
-  component: HomePage,
-});
-
 function Section({
   id,
   className = "",
@@ -82,10 +56,9 @@ function Blob({ className = "" }: { className?: string }) {
   );
 }
 
-function HomePage() {
+export default function App() {
   useReveal();
 
-  // smooth-scroll already via CSS
   useEffect(() => {
     document.title = "MenstruAcción Querétaro";
   }, []);
