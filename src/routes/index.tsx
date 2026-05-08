@@ -9,6 +9,10 @@ import {
   BookOpen,
   Scissors,
   MessagesSquare,
+  PlayCircle,
+  BarChart3,
+  Download,
+  ArrowRight,
   Send,
   Handshake,
   HeartHandshake,
@@ -414,7 +418,143 @@ function HomePage() {
         </div>
       </Section>
 
-      {/* PRODUCTOS */}
+      {/* APRENDE CON NOSOTRAS */}
+      <Section id="aprende" className="bg-background relative overflow-hidden">
+        <Blob className="size-[360px] -top-20 -left-20 bg-[var(--lilac)] opacity-30" />
+        <Blob className="size-[300px] bottom-0 -right-10 bg-[var(--rose)] opacity-30" />
+
+        <div className="text-center max-w-2xl mx-auto reveal relative">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+            Recursos
+          </span>
+          <h2 className="mt-3 font-display font-semibold text-3xl md:text-5xl text-balance">
+            Aprende con Nosotras
+          </h2>
+          <p className="mt-5 text-muted-foreground text-balance">
+            Accede a nuestros cursos y materiales educativos sobre salud menstrual desde
+            cualquier lugar.
+          </p>
+        </div>
+
+        <div className="relative mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              tag: "Curso",
+              icon: GraduationCap,
+              title: "Educación Menstrual Básica",
+              text: "Conoce tu cuerpo, los productos de gestión menstrual y cómo vivir tu ciclo de forma plena.",
+              format: "4 sesiones por Zoom",
+              gradient: "from-[var(--deep)] to-[var(--lilac)]",
+            },
+            {
+              tag: "Guía",
+              icon: Scissors,
+              title: "Elabora tu Toalla de Tela",
+              text: "Aprende paso a paso a crear tus propios productos de higiene reutilizables.",
+              format: "PDF descargable",
+              gradient: "from-[var(--lilac)] to-[var(--rose)]",
+            },
+            {
+              tag: "Video",
+              icon: PlayCircle,
+              title: "Más Allá del Mes",
+              text: "Nuestro documental que visibiliza la realidad de la pobreza menstrual en comunidades de Querétaro.",
+              format: "Documental completo",
+              gradient: "from-[var(--rose)] to-[var(--deep)]",
+            },
+            {
+              tag: "Infografía",
+              icon: BarChart3,
+              title: "Pobreza Menstrual en Datos",
+              text: "Conoce las cifras y la realidad que enfrentan miles de mujeres en México.",
+              format: "Imagen descargable",
+              gradient: "from-[var(--deep)] to-[var(--rose)]",
+            },
+            {
+              tag: "Curso",
+              icon: GraduationCap,
+              title: "Autonomía Corporal",
+              text: "Un espacio seguro para aprender sobre tu cuerpo, tus derechos y cómo ejercerlos.",
+              format: "3 sesiones por Zoom",
+              gradient: "from-[var(--lilac)] to-[var(--deep)]",
+            },
+            {
+              tag: "Guía",
+              icon: Download,
+              title: "Toolkit MenstruAcción",
+              text: "Todo lo que necesitas para replicar nuestras actividades en tu comunidad.",
+              format: "Kit digital descargable",
+              gradient: "from-[var(--rose)] to-[var(--lilac)]",
+            },
+          ].map((c, i) => {
+            const Icon = c.icon;
+            return (
+              <article
+                key={i}
+                className="reveal group flex flex-col rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-accent hover:-translate-y-1 transition-all duration-300 soft-shadow"
+                style={{ transitionDelay: `${i * 70}ms` }}
+              >
+                <div className={`relative h-44 bg-gradient-to-br ${c.gradient} overflow-hidden`}>
+                  <div className="absolute inset-0 bg-[var(--lilac)]/30 mix-blend-soft-light" />
+                  <div className="absolute inset-0 grid place-items-center">
+                    <Icon
+                      className="size-16 text-white/90 group-hover:scale-110 transition-transform duration-500"
+                      strokeWidth={1.2}
+                    />
+                  </div>
+                  <span className="absolute top-4 left-4 inline-flex items-center rounded-full bg-white/90 backdrop-blur px-3 py-1 text-[11px] font-semibold tracking-wider uppercase text-primary">
+                    {c.tag}
+                  </span>
+                </div>
+                <div className="flex flex-col flex-1 p-6">
+                  <h3 className="font-display font-semibold text-lg text-primary">{c.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{c.text}</p>
+                  <p className="mt-4 text-xs font-medium text-foreground/70 flex items-center gap-2">
+                    <span className="inline-block size-1.5 rounded-full bg-accent" />
+                    {c.format}
+                  </p>
+                  <button
+                    type="button"
+                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-primary text-primary px-5 py-2.5 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition self-start"
+                  >
+                    Ver más
+                    <ArrowRight className="size-4" />
+                  </button>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div
+          className="reveal relative mt-14 rounded-3xl p-8 md:p-12 overflow-hidden"
+          style={{
+            backgroundImage:
+              "linear-gradient(120deg, color-mix(in oklab, var(--lilac) 70%, white), color-mix(in oklab, var(--rose) 75%, white))",
+          }}
+        >
+          <Blob className="size-[260px] -top-12 -right-12 bg-white opacity-40" />
+          <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="max-w-2xl">
+              <h3 className="font-display font-semibold text-2xl md:text-3xl text-primary text-balance">
+                ¿Quieres que llevemos un taller a tu escuela o comunidad?
+              </h3>
+              <p className="mt-3 text-foreground/75">
+                Diseñamos experiencias educativas a la medida para escuelas, colectivos y
+                organizaciones en todo México.
+              </p>
+            </div>
+            <a
+              href="#productos"
+              className="shrink-0 inline-flex items-center gap-2 rounded-2xl bg-primary text-primary-foreground px-6 py-3 font-semibold hover:bg-foreground transition"
+            >
+              Solicita un taller
+              <ArrowRight className="size-4" />
+            </a>
+          </div>
+        </div>
+      </Section>
+
       <Section id="productos" className="bg-muted">
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="reveal">
